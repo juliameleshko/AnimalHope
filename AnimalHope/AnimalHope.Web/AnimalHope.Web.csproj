@@ -255,6 +255,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnimalHope.Data\AnimalHope.Data.csproj">
+      <Project>{65a812b2-57db-4038-9f5f-e560daf210d3}</Project>
+      <Name>AnimalHope.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnimalHope.Models\AnimalHope.Models.csproj">
+      <Project>{8a614b20-a8b9-4a16-ac65-350bf037ec6e}</Project>
+      <Name>AnimalHope.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
