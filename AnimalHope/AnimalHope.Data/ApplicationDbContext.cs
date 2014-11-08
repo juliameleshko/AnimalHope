@@ -5,7 +5,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -31,5 +31,15 @@
         public IDbSet<Vet> Vets { get; set; }
 
         public IDbSet<Animal> Animals { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }
