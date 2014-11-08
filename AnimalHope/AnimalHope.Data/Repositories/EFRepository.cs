@@ -5,27 +5,32 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class EFRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(IApplicationDbContext context)
+        protected IDbSet<T> DbSet { get; set; }
+        protected IApplicationDbContext Context { get; set; }
+
+        public EFRepository(IApplicationDbContext context)
         {
             if (context == null)
             {
                 throw new ArgumentException("An instance of DbContext is required to use this repository.", "context");
             }
+
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
         }
-        protected IDbSet<T> DbSet { get; set; }
-        protected IApplicationDbContext Context { get; set; }
+
         public virtual IQueryable<T> All()
         {
             return this.DbSet.AsQueryable();
         }
+
         public virtual T GetById(int id)
         {
             return this.DbSet.Find(id);
         }
+
         public virtual void Add(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
@@ -38,6 +43,7 @@
                 this.DbSet.Add(entity);
             }
         }
+
         public virtual void Update(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
@@ -47,6 +53,7 @@
             }
             entry.State = EntityState.Modified;
         }
+
         public virtual void Delete(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
@@ -73,10 +80,12 @@
             DbEntityEntry entry = this.Context.Entry(entity);
             entry.State = EntityState.Detached;
         }
+
         public int SaveChanges()
         {
             return this.Context.SaveChanges();
         }
+
         public void Dispose()
         {
             this.Context.Dispose();

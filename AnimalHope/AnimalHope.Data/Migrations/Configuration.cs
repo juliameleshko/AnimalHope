@@ -17,6 +17,11 @@ namespace AnimalHope.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            //if (context.Users.Any())
+            //{
+            //    return;
+            //}
+
             //    this.SeedCourses(context);
             //    this.SeedStudents(context);
         }
