@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using AnimalHope.Web.Models;
+using AnimalHope.Models;
+using AnimalHope.Data;
 
 namespace AnimalHope.Web
 {

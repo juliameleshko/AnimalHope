@@ -7,6 +7,8 @@ using Microsoft.Owin.Security.DataProtection;
 using Owin;
 using System;
 using AnimalHope.Web.Models;
+using AnimalHope.Data;
+using AnimalHope.Models;
 
 namespace AnimalHope.Web
 {
