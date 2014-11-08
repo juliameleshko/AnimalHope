@@ -7,7 +7,7 @@ namespace AnimalHope.Data
 
     public interface IApplicationDbContext : IDisposable
     {
-        IDbSet<Type> Types { get; set; }
+        IDbSet<AnimalType> AnimalTypes { get; set; }
 
         IDbSet<Condition> Conditions { get; set; }
 

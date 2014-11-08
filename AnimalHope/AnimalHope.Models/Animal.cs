@@ -19,7 +19,7 @@
         [ForeignKey("Type")]
         public int TypeId { get; set; }
 
-        public virtual Type Type { get; set; }
+        public virtual AnimalType AnimalType { get; set; }
 
         [ForeignKey("Condition")]
         public int ConditionId { get; set; }

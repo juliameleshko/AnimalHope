@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Type
+    public class AnimalType
     {
         [Key]
         public int Id { get; set; }

@@ -18,7 +18,7 @@
             return new ApplicationDbContext();
         }
 
-        public IDbSet<Type> Types { get; set; }
+        public IDbSet<AnimalType> AnimalTypes { get; set; }
 
         public IDbSet<Condition> Conditions { get; set; }
 

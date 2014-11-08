@@ -58,7 +58,7 @@
     <Compile Include="Description.cs" />
     <Compile Include="Donation.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="AnimalType.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
