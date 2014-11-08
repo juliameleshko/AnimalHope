@@ -2,6 +2,7 @@
 {
     using AnimalHope.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using System.Data.Entity;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -14,5 +15,19 @@
         {
             return new ApplicationDbContext();
         }
+
+        public IDbSet<Type> Types { get; set; }
+
+        public IDbSet<Condition> Conditions { get; set; }
+
+        public IDbSet<Description> Descriptions { get; set; }
+
+        public IDbSet<Location> Locations { get; set; }
+
+        public IDbSet<Donation> Donations { get; set; }
+
+        public IDbSet<Vet> Vets { get; set; }
+
+        public IDbSet<Animal> Animals { get; set; }
     }
 }
