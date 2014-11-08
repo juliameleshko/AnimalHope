@@ -29,5 +29,7 @@
         public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<Description> Descriptions { get; set; }
+
+        public string Picture { get; set; }
     }
 }
