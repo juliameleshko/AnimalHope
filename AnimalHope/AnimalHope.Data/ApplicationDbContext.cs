@@ -1,5 +1,6 @@
 ﻿namespace AnimalHope.Data
 {
+    using AnimalHope.Data.Migrations;
     using AnimalHope.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
@@ -7,8 +8,9 @@
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("AnimalHope", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public static ApplicationDbContext Create()
