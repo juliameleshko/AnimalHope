@@ -12,19 +12,22 @@ using Microsoft.Owin.Security;
 using Owin;
 using AnimalHope.Web.Models;
 using AnimalHope.Models;
+using AnimalHope.Data;
 
 namespace AnimalHope.Web.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public AccountController(IApplicationData data)
+            :base(data)
         {
         }
 
-        public AccountController(ApplicationUserManager userManager)
+        public AccountController(ApplicationUserManager userManager, IApplicationData data)
+            : base(data)
         {
             UserManager = userManager;
         }

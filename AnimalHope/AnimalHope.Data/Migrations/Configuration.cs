@@ -1,5 +1,6 @@
 namespace AnimalHope.Data.Migrations
 {
+    using AnimalHope.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -17,63 +18,48 @@ namespace AnimalHope.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            //if (context.Users.Any())
-            //{
-            //    return;
-            //}
+            if (context.Users.Any())
+            {
+                return;
+            }
 
-            //    this.SeedCourses(context);
-            //    this.SeedStudents(context);
+            this.SeedTypes(context);
+            this.SeedConditions(context);
+
+            context.SaveChanges();
         }
 
-        //private void SeedStudents(StudentSystemDbContext context)
-        //{
-        //    if (context.Students.Any())
-        //    {
-        //        return;
-        //    }
+        private void SeedTypes(ApplicationDbContext context)
+        {
+            context.AnimalTypes.Add(new AnimalType
+            {
+                Name = "Cat"
+            });
 
-        //    context.Students.Add(new Student
-        //    {
-        //        FirstName = "Evlogi",
-        //        LastName = "Hristov",
-        //        Level = 1
-        //    });
+            context.AnimalTypes.Add(new AnimalType
+            {
+                Name = "Dog"
+            });
+        }
 
-        //    context.Students.Add(new Student
-        //    {
-        //        FirstName = "Ivaylo",
-        //        LastName = "Kenov",
-        //        Level = 2,
-        //    });
-
-        //    context.Students.Add(new Student
-        //    {
-        //        FirstName = "Doncho",
-        //        LastName = "Minkov",
-        //        Level = 3
-        //    });
-
-        //    context.Students.Add(new Student
-        //    {
-        //        FirstName = "Nikolay",
-        //        LastName = "Kostov",
-        //        Level = 9999
-        //    });
-        //}
-
-        //private void SeedCourses(StudentSystemDbContext context)
-        //{
-        //    if (context.Courses.Any())
-        //    {
-        //        return;
-        //    }
-
-        //    context.Courses.Add(new Course
-        //    {
-        //        Name = "Seeded course",
-        //        Description = "Initial course for testing"
-        //    });
-        //}
+        private void SeedConditions(ApplicationDbContext context)
+        {
+            context.Conditions.Add(new Condition
+            {
+                Name = "Homeless"
+            });
+            context.Conditions.Add(new Condition
+            {
+                Name = "At vet's office"
+            });
+            context.Conditions.Add(new Condition
+            {
+                Name = "At temporary home"
+            });
+            context.Conditions.Add(new Condition
+            {
+                Name = "Adopted"
+            });
+        }
     }
 }
