@@ -16,8 +16,8 @@
 
         public string Name { get; set; }
 
-        [ForeignKey("Type")]
-        public int TypeId { get; set; }
+        [ForeignKey("AnimalType")]
+        public int AnimalTypeId { get; set; }
 
         public virtual AnimalType AnimalType { get; set; }
 
