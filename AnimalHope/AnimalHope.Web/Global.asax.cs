@@ -13,6 +13,9 @@ namespace AnimalHope.Web
     {
         protected void Application_Start()
         {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
+
             AutoMapperConfig.Execute();
 
             AreaRegistration.RegisterAllAreas();
