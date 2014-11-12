@@ -24,20 +24,34 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @*@if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    }*@
+                        <li>@Html.ActionLink("Create Animal", "Create", "Animal")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    @if (ViewData["Error"] != null)
+    {
+        <div class="alert alert-dismissable alert-danger text-center">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Error</strong> @ViewData["Error"].ToString()
+        </div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-dismissable alert-success text-center">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Success</strong> @TempData["Success"].ToString()
+        </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Animal Hope Bulgaria</p>
         </footer>
     </div>
 

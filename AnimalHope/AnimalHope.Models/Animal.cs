@@ -37,5 +37,7 @@
         public virtual ICollection<Description> Descriptions { get; set; }
 
         public byte[] Picture { get; set; }
+
+        public string PictureType { get; set; }
     }
 }

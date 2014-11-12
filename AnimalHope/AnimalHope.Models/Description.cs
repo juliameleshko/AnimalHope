@@ -15,7 +15,6 @@ namespace AnimalHope.Models
 
         public virtual Animal Animal { get; set; }
 
-        [Required]
         public virtual ApplicationUser User { get; set; }
 
         [Required]

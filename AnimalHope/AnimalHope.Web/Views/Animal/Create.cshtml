@@ -1,0 +1,54 @@
+﻿@model AnimalHope.Web.Models.AnimalViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Animal</h2>
+
+@using (Html.BeginForm("Create", "Animal", FormMethod.Post, new { @class = "form-horizontal"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Animal Information</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.AnimalTypeId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.AnimalTypeId, new SelectList(Model.AnimalTypes, "Id", "Name").ToArray(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConditionId, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.ConditionId, new SelectList(Model.Conditions, "Id", "Name").ToArray(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Picture, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    <input type="file" name="Picture" value="Browse" accept="image/*" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-primary center-block" value="Add Animal" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
