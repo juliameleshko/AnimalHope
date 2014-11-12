@@ -217,6 +217,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.superhero.css" />
     <Content Include="Content\bootstrap.superhero.min.css" />
+    <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Images\paw.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -273,7 +275,6 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Animal\Create.cshtml" />
-    <Content Include="Views\Animal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

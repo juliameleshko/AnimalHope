@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity;
     using System;
     using AnimalHope.Web.Utilities;
+    //using System.IO;
 
     public class AnimalController : BaseController
     {
@@ -62,15 +63,20 @@
                     User = this.data.Users.GetById(User.Identity.GetUserId())
                 };
 
+                if (animal.Picture != null)
+                {
+                    animalModel.Picture = HttpPostedFileWrapperExtensions.GetResizedImage(animal.Picture);
+                    animalModel.PictureType = animal.Picture.ContentType;
+                }
+                else
+                {
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "Content\\Images\\paw.png";
+                    animalModel.Picture = System.IO.File.ReadAllBytes(path);
+                    animalModel.PictureType = "images/png";
+                }
+
                 this.data.Animals.Add(animalModel);
-
                 this.data.SaveChanges();
-
-                //if (animal.Picture != null)
-                //{
-                //    animalModel.Picture = HttpPostedFileWrapperExtensions.GetResizedImage(animal.Picture);
-                //    animalModel.PictureType = animal.Picture.ContentType;
-                //}
 
                 TempData["Success"] = "Animal was created successfuly.";
                 return RedirectToAction("Index", "Home");

@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="icon" href="~/Content/Images/favicon.ico" type="image/ico" />
+    <title>@ViewBag.Title - Animal Hope</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -37,14 +38,14 @@
     {
         <div class="alert alert-dismissable alert-danger text-center">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>Error</strong> @ViewData["Error"].ToString()
+            <strong>Error! </strong> @ViewData["Error"].ToString()
         </div>
     }
     @if (TempData["Success"] != null)
     {
         <div class="alert alert-dismissable alert-success text-center">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>Success</strong> @TempData["Success"].ToString()
+            <strong>Success! </strong> @TempData["Success"].ToString()
         </div>
     }
     <div class="container body-content">
