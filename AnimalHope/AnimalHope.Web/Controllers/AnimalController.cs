@@ -75,6 +75,12 @@
                     animalModel.PictureType = "images/png";
                 }
 
+                animalModel.Descriptions.Add(new Description
+                {
+                    Text = animal.Description,
+                    User = this.data.Users.GetById(User.Identity.GetUserId())
+                });
+
                 this.data.Animals.Add(animalModel);
                 this.data.SaveChanges();
 

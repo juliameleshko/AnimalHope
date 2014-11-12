@@ -7,12 +7,6 @@
 
     public class AnimalViewModel
     {
-        public AnimalViewModel()
-        {
-            this.AnimalTypes = new HashSet<AnimalType>();
-            this.Conditions = new HashSet<Condition>();
-        }
-
         [Required]
         public string Name { get; set; }
 
@@ -25,6 +19,10 @@
         public int ConditionId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        [MinLength(3)]
+        [MaxLength(500)]
+        public string Description { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "Picture")]

@@ -10,11 +10,6 @@
 
     public class AllAnimalsViewModel : IHaveCustomMappings
     {
-        public AllAnimalsViewModel()
-        {
-            this.Descriptions = new HashSet<Description>();
-        }
-
         private string picture;
 
         public int ID { get; set; }
