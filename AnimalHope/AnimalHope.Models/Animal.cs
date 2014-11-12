@@ -14,22 +14,28 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
+        [Required]
         [ForeignKey("AnimalType")]
         public int AnimalTypeId { get; set; }
 
         public virtual AnimalType AnimalType { get; set; }
 
+        [Required]
         [ForeignKey("Condition")]
         public int ConditionId { get; set; }
 
         public virtual Condition Condition { get; set; }
 
+        [Required]
         public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<Description> Descriptions { get; set; }
 
-        public string Picture { get; set; }
+        public byte[] Picture { get; set; }
     }
 }

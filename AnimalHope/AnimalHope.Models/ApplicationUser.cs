@@ -9,8 +9,13 @@
     public class ApplicationUser : IdentityUser
     {
         [Required]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string FirstName { get; set; }
+
         [Required]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

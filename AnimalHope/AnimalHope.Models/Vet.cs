@@ -14,11 +14,13 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [ForeignKey("Animal")]
         public int AnimalId { get; set; }
 
         public virtual Animal Animal { get; set; }
 
+        [Required]
         public decimal Cost { get; set; }
 
         public ICollection<Donation> Donations { get; set; }
