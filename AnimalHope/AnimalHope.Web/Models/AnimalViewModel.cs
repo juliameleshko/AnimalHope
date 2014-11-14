@@ -1,9 +1,10 @@
 ﻿namespace AnimalHope.Web.Models
 {
-    using AnimalHope.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
+
+    using AnimalHope.Models;
 
     public class AnimalViewModel
     {
@@ -29,6 +30,7 @@
         public HttpPostedFileWrapper Picture { get; set; }
 
         public IEnumerable<AnimalType> AnimalTypes { get; set; }
+
         public IEnumerable<Condition> Conditions { get; set; }
     }
 }

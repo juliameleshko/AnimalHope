@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using AutoMapper;
+
     using AnimalHope.Models;
     using AnimalHope.Web.Infrastructure.Mapping;
+
+    using AutoMapper;
 
     public class AllAnimalsViewModel : IHaveCustomMappings
     {
@@ -47,6 +47,7 @@
             //.ForMember(x => x.PictureType, opt => opt.MapFrom(m => m.PictureType))
             //.ForMember(x => x.Picture, opt => opt.MapFrom(m => m.Picture));
         }
+
         private string GetBase64(string imageType, byte[] imageData)
         {
             var binaryContent = Convert.ToBase64String(imageData);
