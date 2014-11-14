@@ -1,11 +1,13 @@
 ﻿namespace AnimalHope.Data
 {
-    using AnimalHope.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
+    using AnimalHope.Models;
+
     using Microsoft.AspNet.Identity.EntityFramework;
 
     public class ApplicationData : IApplicationData
@@ -102,7 +104,7 @@
 
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), context);
+                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), this.context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 

@@ -1,9 +1,10 @@
-﻿using System;
-namespace AnimalHope.Data
+﻿namespace AnimalHope.Data
 {
-    using AnimalHope.Models;
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+
+    using AnimalHope.Models;
 
     public interface IApplicationDbContext : IDisposable
     {

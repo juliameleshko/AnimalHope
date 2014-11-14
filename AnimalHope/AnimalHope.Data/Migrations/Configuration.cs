@@ -1,10 +1,11 @@
 namespace AnimalHope.Data.Migrations
 {
-    using AnimalHope.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+
+    using AnimalHope.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {

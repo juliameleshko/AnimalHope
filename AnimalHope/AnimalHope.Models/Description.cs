@@ -1,6 +1,7 @@
 ﻿
 namespace AnimalHope.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,6 +9,8 @@ namespace AnimalHope.Models
     {
         [Key]
         public int Id { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         [Required]
         [ForeignKey("Animal")]

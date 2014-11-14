@@ -7,9 +7,6 @@
 
     public class EFRepository<T> : IRepository<T> where T : class
     {
-        protected IDbSet<T> DbSet { get; set; }
-        protected IApplicationDbContext Context { get; set; }
-
         public EFRepository(IApplicationDbContext context)
         {
             if (context == null)
@@ -20,6 +17,10 @@
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
         }
+
+        protected IDbSet<T> DbSet { get; set; }
+
+        protected IApplicationDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
@@ -51,6 +52,7 @@
             {
                 this.DbSet.Attach(entity);
             }
+
             entry.State = EntityState.Modified;
         }
 
@@ -67,6 +69,7 @@
                 this.DbSet.Remove(entity);
             }
         }
+
         public virtual void Delete(int id)
         {
             var entity = this.GetById(id);
@@ -75,6 +78,7 @@
                 this.Delete(entity);
             }
         }
+
         public virtual void Detach(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);
