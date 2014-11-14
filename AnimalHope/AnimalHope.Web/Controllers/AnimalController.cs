@@ -8,7 +8,6 @@
     using Microsoft.AspNet.Identity;
     using System;
     using AnimalHope.Web.Utilities;
-    //using System.IO;
 
     public class AnimalController : BaseController
     {
@@ -16,12 +15,6 @@
             : base(data)
         {
         }
-
-        //[HttpGet]
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
         [HttpGet]
         public ActionResult Create()

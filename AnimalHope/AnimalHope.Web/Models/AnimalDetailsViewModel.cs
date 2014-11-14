@@ -1,14 +1,13 @@
 ﻿namespace AnimalHope.Web.Models
 {
-    using System;
-    using System.Collections.Generic;
-
     using AnimalHope.Models;
     using AnimalHope.Web.Infrastructure.Mapping;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
 
-    using AutoMapper;
-
-    public class AllAnimalsViewModel : IMapFrom<Animal>
+    public class AnimalDetailsViewModel : IMapFrom<Animal>
     {
         private string picture;
 
@@ -21,6 +20,10 @@
         public Condition Condition { get; set; }
 
         public ApplicationUser User { get; set; }
+
+        public IEnumerable<Description> Descriptions { get; set; }
+
+        public IEnumerable<Description> OrderedDescriptions { get; set; }
 
         public string PictureType { get; set; }
 
