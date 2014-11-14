@@ -1,5 +1,4 @@
-﻿
-namespace AnimalHope.Models
+﻿namespace AnimalHope.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
