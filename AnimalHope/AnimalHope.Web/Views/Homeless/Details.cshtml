@@ -102,12 +102,11 @@
                     <div class="col-md-7">
                         @Html.TextBoxFor(m => m.CostAmount, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.CostAmount, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(m => m.ID)
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="submit" class="btn btn-primary center-block" value="Donate" />
+                        <input type="submit" class="btn btn-primary center-block" value="Provide" />
                     </div>
                     <div class="col-md-6">
                         <input type="button" id="homelessVetCansel" class="btn btn-primary center-block" value="Cansel" />

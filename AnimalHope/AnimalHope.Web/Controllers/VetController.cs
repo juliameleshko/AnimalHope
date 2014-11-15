@@ -158,7 +158,7 @@
             if (!animal.DonationAmount.HasValue)
             {
                 this.ModelState.AddModelError("DonationAmount", "The Field \"Donation Amount\" is required.");
-                errorMsg = "Donation Amountis required.";
+                errorMsg = "Donation Amount is required.";
             }
 
             if (ModelState.IsValid)
