@@ -1,5 +1,6 @@
 ﻿namespace AnimalHope.Models
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,16 +9,10 @@
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Animal")]
-        public int AnimalId { get; set; }
-
-        public virtual Animal Animal { get; set; }
-
-        [Required]
+        [DefaultValue("0")]
         public string Latitude { get; set; }
 
-        [Required]
+        [DefaultValue("0")]
         public string Longitude { get; set; }
     }
 }

@@ -220,8 +220,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.superhero.css" />
     <Content Include="Content\bootstrap.superhero.min.css" />
+    <Content Include="Content\Images\animalhope.jpg" />
     <Content Include="Content\Images\favicon.ico" />
     <Content Include="Content\Images\paw.png" />
+    <Content Include="Scripts\Animal\createAnimal.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

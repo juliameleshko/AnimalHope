@@ -31,10 +31,13 @@
 
         public virtual Condition Condition { get; set; }
 
-        [Required]
-        public virtual ApplicationUser User { get; set; }
+        [ForeignKey("Location")]
+        public int LocationId { get; set; }
 
         public virtual Location Location { get; set; }
+
+        [Required]
+        public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<Description> Descriptions { get; set; }
 

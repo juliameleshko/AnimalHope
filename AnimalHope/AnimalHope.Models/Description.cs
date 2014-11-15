@@ -9,6 +9,7 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public DateTime CreatedOn { get; set; }
 
         [Required]

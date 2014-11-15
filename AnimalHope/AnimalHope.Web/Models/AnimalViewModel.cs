@@ -5,8 +5,9 @@
     using System.Web;
 
     using AnimalHope.Models;
+    using AnimalHope.Web.Infrastructure.Mapping;
 
-    public class AnimalViewModel
+    public class AnimalViewModel : IMapFrom<Animal>
     {
         [Required]
         public string Name { get; set; }
@@ -21,6 +22,9 @@
 
         public virtual ApplicationUser User { get; set; }
 
+        public virtual Location Location { get; set; }
+
+        [Required]
         [MinLength(3)]
         [MaxLength(500)]
         public string Description { get; set; }

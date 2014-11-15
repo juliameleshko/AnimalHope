@@ -68,11 +68,28 @@
                     animalModel.PictureType = "images/png";
                 }
 
+                if (animal.Location.Latitude == null)
+                {
+                    animal.Location.Latitude = "42.7000";
+                }
+
+                if (animal.Location.Longitude == null)
+                {
+                    animal.Location.Longitude = "23.3333";
+                }
+
                 animalModel.Descriptions.Add(new Description
                 {
                     Text = animal.Description,
-                    User = this.data.Users.GetById(User.Identity.GetUserId())
+                    User = this.data.Users.GetById(User.Identity.GetUserId()),
+                    CreatedOn = DateTime.Now
                 });
+
+                animalModel.Location = new Location
+                {
+                    Latitude = animal.Location.Latitude,
+                    Longitude = animal.Location.Longitude
+                };
 
                 this.data.Animals.Add(animalModel);
                 this.data.SaveChanges();
