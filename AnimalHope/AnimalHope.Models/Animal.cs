@@ -31,6 +31,11 @@
 
         public virtual Condition Condition { get; set; }
 
+        [ForeignKey("Vet")]
+        public int VetId { get; set; }
+
+        public virtual Vet Vet { get; set; }
+
         [ForeignKey("Location")]
         public int LocationId { get; set; }
 

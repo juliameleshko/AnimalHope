@@ -1,6 +1,7 @@
 ﻿namespace AnimalHope.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,15 +15,9 @@
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [ForeignKey("Animal")]
-        public int AnimalId { get; set; }
+        [DefaultValue(0)]
+        public decimal? Cost { get; set; }
 
-        public virtual Animal Animal { get; set; }
-
-        [Required]
-        public decimal Cost { get; set; }
-
-        public ICollection<Donation> Donations { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
     }
 }

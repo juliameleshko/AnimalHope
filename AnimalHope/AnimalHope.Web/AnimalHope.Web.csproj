@@ -195,10 +195,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdoptedController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\AnimalDetailsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomelessController.cs" />
+    <Compile Include="Controllers\TemporaryController.cs" />
+    <Compile Include="Controllers\VetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,9 +210,16 @@
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdoptedViewModel.cs" />
     <Compile Include="Models\AllAnimalsViewModel.cs" />
     <Compile Include="Models\AnimalDetailsViewModel.cs" />
     <Compile Include="Models\AnimalViewModel.cs" />
+    <Compile Include="Models\HomelessDetailsViewModel.cs" />
+    <Compile Include="Models\HomelessViewModel.cs" />
+    <Compile Include="Models\TemporaryDetailsViewModel.cs" />
+    <Compile Include="Models\TemporaryViewModel.cs" />
+    <Compile Include="Models\VetDetailsViewModel.cs" />
+    <Compile Include="Models\VetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\HttpPostedFileWrapperExtensions.cs" />
@@ -223,6 +234,8 @@
     <Content Include="Content\Images\animalhope.jpg" />
     <Content Include="Content\Images\favicon.ico" />
     <Content Include="Content\Images\paw.png" />
+    <Content Include="Scripts\Animal\adoptOrDonateVetAnimal.js" />
+    <Content Include="Scripts\Animal\adoptTempAnimal.js" />
     <Content Include="Scripts\Animal\createAnimal.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -234,6 +247,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\Animal\homelessAnimalDetails.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -281,6 +295,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Animal\Create.cshtml" />
     <Content Include="Views\AnimalDetails\Details.cshtml" />
+    <Content Include="Views\Homeless\Index.cshtml" />
+    <Content Include="Views\Vet\Index.cshtml" />
+    <Content Include="Views\Temporary\Index.cshtml" />
+    <Content Include="Views\Adopted\Index.cshtml" />
+    <Content Include="Views\Temporary\Details.cshtml" />
+    <Content Include="Views\Vet\Details.cshtml" />
+    <Content Include="Views\Homeless\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

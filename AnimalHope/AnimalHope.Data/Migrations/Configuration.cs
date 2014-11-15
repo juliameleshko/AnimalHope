@@ -24,11 +24,24 @@ namespace AnimalHope.Data.Migrations
                 return;
             }
 
+            //this.SeedUsers(context);
             this.SeedTypes(context);
             this.SeedConditions(context);
 
             context.SaveChanges();
         }
+
+        //private void SeedUsers(ApplicationDbContext context)
+        //{
+        //    context.Users.Add(new ApplicationUser
+        //        {
+        //            Email = "admin@admin.com",
+        //            FirstName = "Admin",
+        //            LastName = "Administrator",
+        //            PhoneNumber = "0888123456",
+        //            Roles = new 
+        //        });
+        //}
 
         private void SeedTypes(ApplicationDbContext context)
         {
