@@ -1,0 +1,39 @@
+﻿﻿@model IEnumerable<AnimalHope.Web.Models.VetViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3 class="text-center well big-text">Animals at vet's office</h3>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3 col-lg-3 col-md-3">
+            <div class="thumbnail">
+                <a href="~/Vet/Details/@item.ID" class="btn btn-primary btn-block">Help</a>
+                <img src="@(item.PictureData)" />
+                <div class="caption">
+                    <h4 class="pull-right">
+                        Type: @item.AnimalType.Name
+                    </h4>
+                    <h4 class="truncate" style="height: 40px">
+                        @item.Name
+                    </h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <p>
+                            User: @item.User.Email
+                        </p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>
+                            Condition: @item.Condition.Name
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,178 @@
+﻿@model AnimalHope.Web.Models.VetDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3 class="text-center well big-text">@Model.Name</h3>
+<div class="row">
+    <div class="col-md-4 text-center">
+        <a href="#" id="adoptVetAnimal" class="btn btn-primary btn-lg text-center">Adopt</a>
+    </div>
+    <div class="col-md-4 text-center">
+        <a href="#" id="tempVetAnimal" class="btn btn-primary btn-lg text-center">Provide a temporary home</a>
+    </div>
+    <div class="col-md-4 text-center">
+        <a href="#" id="donateVetAnimal" class="btn btn-primary btn-lg text-center">Donate</a>
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+<div class="row" id="vetAnimalAdopt">
+    @using (Html.BeginForm("Adopt", "Vet", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new description</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description, new { @class = "col-md-5 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.ID)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary center-block" value="Adopt" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" id="vetAdoptCansel" class="btn btn-primary center-block" value="Cansel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row" id="vetAnimalTemp">
+    @using (Html.BeginForm("AddToTemporary", "Vet", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new description</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description, new { @class = "col-md-5 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.ID)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary center-block" value="Provide" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" id="tempAdoptCansel" class="btn btn-primary center-block" value="Cansel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row" id="vetAnimalDonate">
+    @using (Html.BeginForm("Donate", "Vet", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add amount</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.DonationAmount, new { @class = "col-md-5 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.DonationAmount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.DonationAmount, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.ID)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary center-block" value="Donate" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" id="vetDonateCansel" class="btn btn-primary center-block" value="Cansel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <img src="@(Model.PictureData)" />
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <p>
+                <strong class="text-primary">Type: </strong>
+                @Html.DisplayFor(m => Model.AnimalType.Name)
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                <strong class="text-primary">Condition: </strong>
+                @Html.DisplayFor(m => Model.Condition.Name)
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                <strong class="text-primary">User: </strong>
+                @Html.DisplayFor(m => Model.User.Email)
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                <strong class="text-primary">Cost: </strong>
+                @Html.DisplayFor(m => Model.Vet.Cost)
+            </p>
+        </div>
+        @if (Model.Vet.Donations.Any())
+        {
+            <div class="row">
+                <p>
+                    <strong class="text-primary">Donations: </strong>
+                    @foreach (var item in Model.Vet.Donations)
+                    {
+                    <p>
+                        @Html.DisplayFor(m => item.Amount)
+                        <strong class="text-primary">by @item.User.Email </strong>
+                    </p>
+                    }
+                    </p>
+                </div>
+        }
+
+    </div>
+</div>
+<br />
+<div class="row">
+    @foreach (var description in Model.OrderedDescriptions)
+    {
+        <div class="col-md-12">
+            <p>
+                <strong class="text-primary">Description:</strong>
+                @description.Text
+            </p>
+            <p>
+                By @description.User.Email on @description.CreatedOn
+            </p>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Animal/adoptOrDonateVetAnimal.js")
+}
