@@ -9,6 +9,7 @@
     using System;
     using AnimalHope.Web.Utilities;
 
+    [Authorize]
     public class AnimalController : BaseController
     {
         public AnimalController(IApplicationData data)
@@ -70,12 +71,17 @@
 
                 if (animal.Location.Latitude == null)
                 {
-                    animal.Location.Latitude = "42.7000";
+                    animal.Location.Latitude = "0";
                 }
 
                 if (animal.Location.Longitude == null)
                 {
-                    animal.Location.Longitude = "23.3333";
+                    animal.Location.Longitude = "0";
+                }
+
+                if (animal.Vet.Cost == null)
+                {
+                    animal.Vet.Cost = 0;
                 }
 
                 animalModel.Descriptions.Add(new Description
@@ -89,6 +95,11 @@
                 {
                     Latitude = animal.Location.Latitude,
                     Longitude = animal.Location.Longitude
+                };
+
+                animalModel.Vet = new Vet
+                {
+                    Cost = animal.Vet.Cost
                 };
 
                 this.data.Animals.Add(animalModel);

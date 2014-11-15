@@ -23,11 +23,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Create Animal", "Create", "Animal")</li>
+                        <li>@Html.ActionLink("Homeless", "Index", "Homeless")</li>
+                        <li>@Html.ActionLink("At vet's office", "Index", "Vet")</li>
+                        <li>@Html.ActionLink("At temporary home", "Index", "Temporary")</li>
+                        <li>@Html.ActionLink("Adopted", "Index", "Adopted")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -46,6 +48,13 @@
         <div class="alert alert-dismissable alert-success text-center">
             <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>Success! </strong> @TempData["Success"].ToString()
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-dismissable alert-danger text-center">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>Error! </strong> @TempData["Error"].ToString()
         </div>
     }
     <div class="container body-content">

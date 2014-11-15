@@ -6,6 +6,7 @@
 
     using AnimalHope.Models;
     using AnimalHope.Web.Infrastructure.Mapping;
+    using System.Web.Mvc;
 
     public class AnimalViewModel : IMapFrom<Animal>
     {
@@ -20,14 +21,16 @@
         [Display(Name = "Condition")]
         public int ConditionId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
 
-        public virtual Location Location { get; set; }
+        public Location Location { get; set; }
 
         [Required]
         [MinLength(3)]
         [MaxLength(500)]
         public string Description { get; set; }
+
+        public Vet Vet { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "Picture")]
