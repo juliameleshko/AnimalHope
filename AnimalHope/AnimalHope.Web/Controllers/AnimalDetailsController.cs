@@ -16,6 +16,7 @@
         {
         }
 
+        [HttpGet]
         private Animal GetAnimalData(int id)
         {
             if (id == -1)
@@ -33,6 +34,7 @@
             return model;
         }
 
+        [HttpGet]
         public ActionResult Details(int id = -1)
         {
             var model = this.GetAnimalData(id);
