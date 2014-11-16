@@ -1,0 +1,45 @@
+﻿@using AnimalHope.Web.Areas.Admin.Models;
+@{
+ ViewBag.Title = "Admin";
+ const string ControllerName = "AnimalAdmin";
+}
+
+<h3 class="text-center thumbnail-header alert alert-info big-text">@ViewBag.Title</h3>
+
+@(Html.Kendo()
+ .Grid<AnimalViewModel>()
+ .Name("grid")
+ .Columns(cols =>
+ {
+ cols.Bound(pr => pr.ID);
+ cols.Bound(pr => pr.Name);
+ cols.Bound(pr => pr.AnimalTypeID);
+ cols.Bound(pr => pr.ConditionId);
+ cols.Command(com => com.Edit()).Title("Edit");
+ cols.Command(com => com.Destroy()).Title("Delete");
+ })
+ .ColumnMenu()
+ .Pageable(page => page.Refresh(true))
+ .Sortable()
+ .Groupable()
+ .Filterable()
+ .Editable(edit => edit.Mode(GridEditMode.InCell))
+ .ToolBar(toolbar =>
+ {
+ toolbar.Create();
+ toolbar.Save();
+ })
+ .DataSource(data =>
+ data
+ .Ajax()
+ .Model(m =>
+ {
+ m.Id(field => field.ID);
+ m.Field(field => field.ID).Editable(false);
+ })
+ .Read(read => read.Action("Read", ControllerName))
+ .Create(create => create.Action("Create", ControllerName))
+ .Update(update => update.Action("Update", ControllerName))
+ .Destroy(destroy => destroy.Action("Destroy", ControllerName).Type(HttpVerbs.Post))
+ )
+)

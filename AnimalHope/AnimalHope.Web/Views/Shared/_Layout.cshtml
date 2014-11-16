@@ -18,18 +18,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Animal Hope", "Index", "Home", new { Area = String.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Create Animal", "Create", "Animal")</li>
-                        <li>@Html.ActionLink("Homeless", "Index", "Homeless")</li>
-                        <li>@Html.ActionLink("At vet's office", "Index", "Vet")</li>
-                        <li>@Html.ActionLink("At temporary home", "Index", "Temporary")</li>
-                        <li>@Html.ActionLink("Adopted", "Index", "Adopted")</li>
+                        <li>@Html.ActionLink("Create Animal", "Create", "Animal", new { Area = String.Empty }, null)</li>
+                        <li>@Html.ActionLink("Homeless", "Index", "Homeless", new { Area = String.Empty }, null)</li>
+                        <li>@Html.ActionLink("At vet's office", "Index", "Vet", new { Area = String.Empty }, null)</li>
+                        <li>@Html.ActionLink("At temporary home", "Index", "Temporary", new { Area = String.Empty }, null)</li>
+                        <li>@Html.ActionLink("Adopted", "Index", "Adopted", new { Area = String.Empty }, null)</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "AnimalAdmin", new { Area = "Admin" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -68,5 +72,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @RenderSection("styles", required: false)
 </body>
 </html>
