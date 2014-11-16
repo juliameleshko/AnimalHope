@@ -5,6 +5,8 @@
 
     public interface IApplicationData
     {
+        IApplicationDbContext Context { get; }
+
         IRepository<AnimalType> AnimalTypes { get; }
 
         IRepository<Condition> Conditions { get; }
