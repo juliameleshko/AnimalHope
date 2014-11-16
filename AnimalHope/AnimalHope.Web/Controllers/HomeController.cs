@@ -25,5 +25,10 @@
                         .To<AllAnimalsViewModel>().ToList();
             return View(model);
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
