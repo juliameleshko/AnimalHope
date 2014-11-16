@@ -32,12 +32,12 @@
         public virtual Condition Condition { get; set; }
 
         [ForeignKey("Vet")]
-        public int VetId { get; set; }
+        public int? VetId { get; set; }
 
         public virtual Vet Vet { get; set; }
 
         [ForeignKey("Location")]
-        public int LocationId { get; set; }
+        public int? LocationId { get; set; }
 
         public virtual Location Location { get; set; }
 

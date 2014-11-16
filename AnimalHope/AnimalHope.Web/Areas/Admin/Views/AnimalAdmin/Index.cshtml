@@ -1,42 +1,36 @@
 ﻿@using AnimalHope.Web.Areas.Admin.Models;
 @{
- ViewBag.Title = "Admin";
- const string ControllerName = "AnimalAdmin";
+    ViewBag.Title = "Administrator's panel";
+    const string ControllerName = "AnimalAdmin";
 }
 
-<h3 class="text-center thumbnail-header alert alert-info big-text">@ViewBag.Title</h3>
+<h3 class="text-center thumbnail-header well big-text">@ViewBag.Title</h3>
 
 @(Html.Kendo()
- .Grid<AnimalViewModel>()
+ .Grid<AnimalAdminViewModel>()
  .Name("grid")
  .Columns(cols =>
  {
- cols.Bound(pr => pr.ID);
- cols.Bound(pr => pr.Name);
- cols.Bound(pr => pr.AnimalTypeID);
- cols.Bound(pr => pr.ConditionId);
- cols.Command(com => com.Edit()).Title("Edit");
- cols.Command(com => com.Destroy()).Title("Delete");
+     cols.Bound(pr => pr.ID);
+     cols.Bound(pr => pr.Name);
+     cols.Bound(pr => pr.AnimalTypeID);
+     cols.Bound(pr => pr.ConditionId);
+     cols.Command(com => com.Edit()).Title("Edit");
+     cols.Command(com => com.Destroy()).Title("Delete");
  })
  .ColumnMenu()
  .Pageable(page => page.Refresh(true))
  .Sortable()
  .Groupable()
  .Filterable()
- .Editable(edit => edit.Mode(GridEditMode.InCell))
+ .Editable(edit => edit.Mode(GridEditMode.PopUp))
  .ToolBar(toolbar =>
  {
- toolbar.Create();
- toolbar.Save();
  })
  .DataSource(data =>
  data
  .Ajax()
- .Model(m =>
- {
- m.Id(field => field.ID);
- m.Field(field => field.ID).Editable(false);
- })
+     .Model(m => m.Id(field => field.ID))
  .Read(read => read.Action("Read", ControllerName))
  .Create(create => create.Action("Create", ControllerName))
  .Update(update => update.Action("Update", ControllerName))

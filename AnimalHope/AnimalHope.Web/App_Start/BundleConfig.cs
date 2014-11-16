@@ -8,15 +8,14 @@
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+            "~/Content/kendo/kendo.common.min.css",
+            "~/Content/kendo/kendo.common-bootstrap.min.css",
+            "~/Content/kendo/kendo.black.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                         "~/Scripts/Kendo/kendo.all.min.js",
                         "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
-
-            bundles.Add(new StyleBundle("~/Content/kendo").Include(
-                        "~/Content/kendo/kendo.common.min.css",
-                        "~/Content/kendo/kendo.common-bootstrap.min.css",
-                        "~/Content/kendo/kendo.silver.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -39,7 +38,7 @@
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

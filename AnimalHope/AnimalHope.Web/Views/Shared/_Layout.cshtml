@@ -6,8 +6,10 @@
     <link rel="icon" href="~/Content/Images/favicon.ico" type="image/ico" />
     <title>@ViewBag.Title - Animal Hope</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Styles.Render("~/Content/Kendo")
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Create Animal", "Create", "Animal", new { Area = String.Empty }, null)</li>
@@ -69,9 +71,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Kendo")
     @RenderSection("scripts", required: false)
-    @RenderSection("styles", required: false)
 </body>
 </html>

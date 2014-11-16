@@ -9,7 +9,7 @@ using System.Web;
 
 namespace AnimalHope.Web.Areas.Admin.Models
 {
-    public class AnimalViewModel : IMapFrom<Animal>
+    public class AnimalAdminViewModel : IMapFrom<Animal>
     {
         public int ID { get; set; }
 
@@ -20,5 +20,7 @@ namespace AnimalHope.Web.Areas.Admin.Models
         public int AnimalTypeID { get; set; }
 
         public int ConditionId { get; set; }
+
+        public ApplicationUser User { get; set; }
     }
 }

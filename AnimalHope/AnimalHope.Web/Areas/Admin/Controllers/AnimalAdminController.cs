@@ -1,17 +1,14 @@
 ﻿namespace AnimalHope.Web.Areas.Admin.Controllers
 {
     using AnimalHope.Data;
-    using AnimalHope.Web.Areas.Admin.Models;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using AutoMapper.QueryableExtensions;
     using AnimalHope.Models;
-    using Kendo.Mvc.Extensions;
+    using AnimalHope.Web.Areas.Admin.Models;
+    using AutoMapper.QueryableExtensions;
     using Kendo.Mvc.UI;
+    using System.Collections;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Microsoft.AspNet.Identity;
 
     public class AnimalAdminController : AdminKendoGridController
     {
@@ -29,7 +26,7 @@
         {
             return this.data.Animals.All()
             .Project()
-            .To<AnimalViewModel>();
+            .To<AnimalAdminViewModel>();
         }
 
         protected override T GetById<T>(object id)
@@ -38,7 +35,7 @@
         }
 
         [HttpPost]
-        public ActionResult Create([DataSourceRequest]DataSourceRequest request, AnimalViewModel model)
+        public ActionResult Create([DataSourceRequest]DataSourceRequest request, AnimalAdminViewModel model)
         {
             var dbModel = base.Create<Animal>(model);
             if (dbModel != null) model.ID = dbModel.Id;
@@ -46,42 +43,34 @@
         }
 
         [HttpPost]
-        public ActionResult Update([DataSourceRequest]DataSourceRequest request, AnimalViewModel model)
+        public ActionResult Update([DataSourceRequest]DataSourceRequest request, AnimalAdminViewModel model)
         {
-            base.Update<Animal, AnimalViewModel>(model, model.ID);
+            var animal = this.data.Animals.All()
+                .FirstOrDefault(a => a.Name == model.Name);
+            
+            var currentUser = animal!=null? animal.User: this.data.Users.GetById(this.User.Identity.GetUserId());
+
+            model.User = currentUser;
+            base.Update<Animal, AnimalAdminViewModel>(model, model.ID);
             return this.GridOperation(model, request);
         }
 
         [HttpPost]
-        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, AnimalViewModel model)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, AnimalAdminViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {
                 var animal = this.data.Animals.GetById(model.ID);
+                var descIds = animal.Descriptions.Select(d => d.Id).ToList();
 
-                foreach (var desc in animal.Descriptions)
+                foreach (var descId in descIds)
                 {
-                    this.data.Descriptions.Delete(desc.Id);
+                    this.data.Descriptions.Delete(descId);
                 }
 
                 this.data.SaveChanges();
 
-                this.data.Locations.Delete(animal.LocationId);
-
-                this.data.SaveChanges();
-
-                foreach (var donation in animal.Vet.Donations)
-                {
-                    this.data.Donations.Delete(donation.Id);
-                }
-
-                this.data.SaveChanges();
-
-                this.data.Vets.Delete(animal.VetId);
-
-                this.data.SaveChanges();
-
-                this.data.Animals.Delete(model.ID);
+                this.data.Animals.Delete(animal.Id);
                 this.data.SaveChanges();
             }
 
