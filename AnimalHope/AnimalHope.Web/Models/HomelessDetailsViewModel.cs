@@ -8,7 +8,7 @@
     using System.Linq;
     using System.Web;
 
-    public class HomelessDetailsViewModel : IMapFrom<Animal>, IHaveCustomMappings
+    public class HomelessDetailsViewModel : IMapFrom<Animal>
     {
         private string picture;
 
@@ -30,9 +30,7 @@
 
         public IEnumerable<Description> OrderedDescriptions { get; set; }
 
-        public string Latitude { get; set; }
-
-        public string Longitude { get; set; }
+        public Location Location { get; set; }
 
         public decimal? CostAmount { get; set; }
 
@@ -58,13 +56,6 @@
             var binaryContent = Convert.ToBase64String(imageData);
             var imageBase64 = string.Format("data:{0};base64,{1}", imageType, binaryContent);
             return imageBase64;
-        }
-
-        public void CreateMappings(AutoMapper.IConfiguration configuration)
-        {
-            configuration.CreateMap<Location, HomelessDetailsViewModel>()
-                .ForMember(x => x.Latitude, opt => opt.MapFrom(m => m.Latitude))
-                .ForMember(x => x.Longitude, opt => opt.MapFrom(m => m.Longitude));
         }
     }
 }

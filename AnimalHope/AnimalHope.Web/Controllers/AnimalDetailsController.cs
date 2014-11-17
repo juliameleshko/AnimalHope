@@ -41,7 +41,7 @@
 
             if (model == null)
             {
-                return this.RedirectToAction("Index", "HomeController");
+                return this.RedirectToAction("Index", "Home");
             }
 
             var viewModel = Mapper.Map<AnimalDetailsViewModel>(model);

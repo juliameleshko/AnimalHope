@@ -483,6 +483,7 @@
     <Content Include="Content\Kendo\images\kendoui.woff" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\Animal\homelessAnimalDetails.js" />
+    <Content Include="Scripts\Animal\markerevent.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
