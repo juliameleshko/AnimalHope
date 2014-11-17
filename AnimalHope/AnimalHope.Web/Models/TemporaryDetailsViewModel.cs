@@ -1,12 +1,10 @@
 ﻿namespace AnimalHope.Web.Models
 {
-    using AnimalHope.Models;
-    using AnimalHope.Web.Infrastructure.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
+    using AnimalHope.Models;
+    using AnimalHope.Web.Infrastructure.Mapping;
 
     public class TemporaryDetailsViewModel : IMapFrom<Animal>
     {

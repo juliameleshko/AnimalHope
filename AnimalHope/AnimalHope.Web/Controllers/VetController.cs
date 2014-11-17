@@ -1,15 +1,13 @@
 ﻿namespace AnimalHope.Web.Controllers
 {
-    using AnimalHope.Data;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
+    using AnimalHope.Data;
+    using AnimalHope.Models;
+    using AnimalHope.Web.Models;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
-    using AnimalHope.Web.Models;
-    using AnimalHope.Models;
     using Microsoft.AspNet.Identity;
 
     [Authorize]

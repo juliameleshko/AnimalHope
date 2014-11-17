@@ -1,13 +1,13 @@
 ﻿namespace AnimalHope.Web.Controllers
 {
-    using AnimalHope.Data;
-    using AnimalHope.Web.Models;
-    using System.Web.Mvc;
-    using System.Linq;
-    using AnimalHope.Models;
-    using Microsoft.AspNet.Identity;
     using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using AnimalHope.Data;
+    using AnimalHope.Models;
+    using AnimalHope.Web.Models;
     using AnimalHope.Web.Utilities;
+    using Microsoft.AspNet.Identity;
 
     [Authorize]
     public class AnimalController : BaseController

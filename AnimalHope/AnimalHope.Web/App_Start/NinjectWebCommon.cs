@@ -5,12 +5,10 @@ namespace AnimalHope.Web.App_Start
 {
     using System;
     using System.Web;
-
+    using AnimalHope.Data;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
-    using AnimalHope.Data;
 
     public static class NinjectWebCommon
     {

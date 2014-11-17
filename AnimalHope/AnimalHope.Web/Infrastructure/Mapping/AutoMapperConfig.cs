@@ -15,6 +15,7 @@
             LoadStandardMappings(types);
             LoadCustomMappings(types);
         }
+
         private static void LoadStandardMappings(IEnumerable<Type> types)
         {
             var maps = (from t in types

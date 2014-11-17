@@ -1,14 +1,10 @@
-﻿using AnimalHope.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-
-namespace AnimalHope.Web
+﻿namespace AnimalHope.Web
 {
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+    using AnimalHope.Web.Infrastructure.Mapping;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

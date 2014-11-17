@@ -1,12 +1,10 @@
 ﻿namespace AnimalHope.Web.Controllers
 {
-    using System.Web.Mvc;
     using System.Linq;
-
+    using System.Web.Mvc;
     using AnimalHope.Data;
     using AnimalHope.Models;
     using AnimalHope.Web.Models;
-
     using AutoMapper;
 
     public class AnimalDetailsController : BaseController

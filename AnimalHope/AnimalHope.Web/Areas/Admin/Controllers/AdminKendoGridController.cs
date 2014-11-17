@@ -1,14 +1,10 @@
 ﻿namespace AnimalHope.Web.Areas.Admin.Controllers
 {
+    using System.Collections;
+    using System.Data.Entity;
+    using System.Web.Mvc;
     using AnimalHope.Data;
     using AutoMapper;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 

@@ -6,6 +6,7 @@
     public abstract class BaseController : Controller
     {
         protected IApplicationData data;
+
         protected BaseController(IApplicationData data)
         {
             this.data = data;

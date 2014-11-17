@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(AnimalHope.Web.Startup))]
+
 namespace AnimalHope.Web
 {
     public partial class Startup

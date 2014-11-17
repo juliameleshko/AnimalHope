@@ -1,14 +1,9 @@
-﻿using AnimalHope.Models;
-using AnimalHope.Web.Infrastructure.Mapping;
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace AnimalHope.Web.Areas.Admin.Models
+﻿namespace AnimalHope.Web.Areas.Admin.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using AnimalHope.Models;
+    using AnimalHope.Web.Infrastructure.Mapping;
+
     public class AnimalAdminViewModel : IMapFrom<Animal>
     {
         public int ID { get; set; }

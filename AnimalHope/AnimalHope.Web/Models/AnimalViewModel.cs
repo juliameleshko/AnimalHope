@@ -3,10 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
-
     using AnimalHope.Models;
     using AnimalHope.Web.Infrastructure.Mapping;
-    using System.Web.Mvc;
 
     public class AnimalViewModel : IMapFrom<Animal>
     {
